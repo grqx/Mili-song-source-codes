@@ -1,0 +1,62 @@
+name: pack jar for both codes
+run-name: pack jar file
+on: 
+    workflow_dispatch:
+    push: 
+        paths: 
+            - 'src/**'
+permissions: write-all
+jobs: 
+    Jarpacker1:
+        runs-on: windows-latest
+        timeout-minutes: 2
+        permissions: write-all
+        name: Pack extraLarge
+        continue-on-error: true
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: pack extraLarge(sustain++;)
+              run: |
+                cd ${{ github.workspace }}
+                ./extraLarge.pack.bat
+                ls
+            - name: upload to Release
+              uses: softprops/action-gh-release@v2.0.5
+              with:
+                files: extraLarge.jar
+                token: ${{ secrets.GITHUB_TOKEN }}
+                tag_name: 'latest'
+                name: 'Packed jar'
+                body: |
+                    # Packed code into jar file
+                    You can now run `java -jar goddrinksjava.jar` or `java -jar extraLarge.jar`
+                    If you can't find the jar, there can be some problem with the code. Clone and run the `goddrinksjava.pack.bat` or `extraLarge.pack.bat` yourself!
+                fail_on_unmatched_files: true
+    Jarpacker2:
+        needs: Jarpacker1
+        runs-on: windows-latest
+        timeout-minutes: 2
+        permissions: write-all
+        name: pack goddrinksjava
+        continue-on-error: false
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: pack goddrinksjava(world.execute(me);)
+              run: |
+                cd ${{ github.workspace }}
+                ./goddrinksjava.pack.bat
+                ls
+            - name: upload to Release
+              uses: softprops/action-gh-release@v2.0.5
+              with:
+                files: goddrinksjava.jar
+                token: ${{ secrets.GITHUB_TOKEN }}
+                tag_name: 'latest'
+                name: 'Packed jar'
+                body: |
+                    # Packed code into jar file
+                    You can now run `java -jar goddrinksjava.jar` or `java -jar extraLarge.jar`
+                    If you can't find the jar, there can be some problem with the code. Clone and run the `goddrinksjava.pack.bat` or `extraLarge.pack.bat` yourself!
+                fail_on_unmatched_files: true
