@@ -5,22 +5,6 @@ import java.util.HashSet;
 
 public class OriginalSet<T> extends HashSet<T> {
     private String sepString = new String();
-	// public Attribute toAttribute() {
-	// 	return new Attribute();
-	// }
-    // public Attribute getAttr(String attributeString) {
-    //     return new Attribute();
-    // }
-    public OriginalSet() {
-
-    }
-    public OriginalSet<T> getFirst() {
-        Iterator<T> it = this.iterator();
-        if(it.hasNext()){
-            it.next();
-        }
-        return this;
-    }
 
     public String setSepString(String sepString) {
         this.sepString = sepString;
@@ -47,9 +31,4 @@ public class OriginalSet<T> extends HashSet<T> {
         }
         return sumLove;
     }
-
-
-
-
-
 }

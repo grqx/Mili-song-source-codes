@@ -1,9 +1,8 @@
 package extraLarge;
 
 import java.util.LinkedList;
-// import java.util.List;
 
-public class World{
+public class World {
     private Boolean giveBestAwardExecuted = false;
     private WorldObjectList worldObjects = new WorldObjectList();
     private OriginalSet<Rule> rules = new OriginalSet<>();

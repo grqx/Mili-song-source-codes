@@ -14,6 +14,7 @@ public class WorldObjectList extends LinkedList<WorldObject> {
         };
         this.sort(Comparator.comparingInt(WorldObject::getBeauty));
     }
+
     public WorldObjectList getArtTags() {
         return null;
     }

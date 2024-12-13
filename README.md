@@ -18,10 +18,11 @@ It also displays the lyrics at runtime.
 
 
 ## To pack into jar and run:
-(Currently only Windows supported)
 ### `sustain++;`
 Run: [`extraLarge.pack.bat`](extraLarge.pack.bat)
+or: [`extraLarge.pack.sh`](extraLarge.pack.sh)
 ### `world.execute(me);`
 Run: [`goddrinksjava.pack.bat`](goddrinksjava.pack.bat)
+or: [`goddrinksjava.pack.sh`](goddrinksjava.pack.sh)
 
-Releases is available now.
+Releases are available now.
