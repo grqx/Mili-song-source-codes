@@ -8,7 +8,7 @@ on:
 permissions: write-all
 jobs: 
     Jarpacker1:
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         timeout-minutes: 2
         permissions: write-all
         name: Pack extraLarge
@@ -19,7 +19,7 @@ jobs:
             - name: pack extraLarge(sustain++;)
               run: |
                 cd ${{ github.workspace }}
-                ./extraLarge.pack.bat
+                ./extraLarge.pack.sh
                 ls
             - name: upload to Release
               uses: softprops/action-gh-release@v2.0.5
@@ -35,7 +35,7 @@ jobs:
                 fail_on_unmatched_files: true
     Jarpacker2:
         needs: Jarpacker1
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         timeout-minutes: 2
         permissions: write-all
         name: pack goddrinksjava
@@ -46,7 +46,7 @@ jobs:
             - name: pack goddrinksjava(world.execute(me);)
               run: |
                 cd ${{ github.workspace }}
-                ./goddrinksjava.pack.bat
+                ./goddrinksjava.pack.sh
                 ls
             - name: upload to Release
               uses: softprops/action-gh-release@v2.0.5
