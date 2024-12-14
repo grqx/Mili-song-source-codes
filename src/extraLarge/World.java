@@ -15,10 +15,13 @@ public class World {
         this.worldObjects.add(0,wo1);
     }
     public void giveBestAward(String attribute, Life life) {
-        if(!giveBestAwardExecuted){
+        if(!giveBestAwardExecuted) {
             System.out.println("A representation of ugly?");
             giveBestAwardExecuted = true;
-        } else System.out.println();
+        } else {
+            System.out.println();
+            System.out.println();
+        }
     }
     public WorldObjectList getWorldObjects() {
         return this.worldObjects;
@@ -53,12 +56,11 @@ public class World {
         return new Relationship(me, you);
     }
 
-
     public Vulnerability getVulnerabilities() {
-        Vulnerability Vulnerabilities = new Vulnerability();
-        return Vulnerabilities;
+        Vulnerability vulnerabilities = new Vulnerability();
+        vulnerabilities.add(new Vulnerability("ZeroDays"));
+        return vulnerabilities;
     }
-
     
     public void addRule(Rule rule) {
         this.rules.add(rule);
@@ -66,13 +68,13 @@ public class World {
             System.out.println("There is no crime in ideality");
         }
     }
+
     public void setRelationship(Life me, Life you, Integer sustain) {
         if(sustain==null)
             this.getRelationship(me, you).end();
         else
             this.getRelationship(me, you).setSustain(sustain);
     }
-
 
     public void execute(Life me) {
         if(postAskPhase == null)
@@ -81,7 +83,7 @@ public class World {
 
     public River getRiver() {
         if(river == null) {
-            System.out.println("Don't let words-die, let love run dry");
+            System.out.println("Don't let words die, let love run dry");
             river = new River(1);
         }
         return river;
@@ -96,7 +98,7 @@ public class World {
     }
 
     public OriginalSet<Life> getLifeTopOnePercent() {
-        System.out.println("\"I saw it coming\"");
+        System.out.println("I saw it coming");
         OriginalSet<Life> lifeTopOnePercent = new OriginalSet<>();
         lifeTopOnePercent.add(new Life());
         return lifeTopOnePercent;

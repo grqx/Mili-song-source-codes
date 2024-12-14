@@ -27,6 +27,7 @@ public class Relationship {
     public void increaseSustain() {
         sustain++;
         System.out.println();
+        System.out.println();
     }
 
     public void challenge() {

@@ -39,7 +39,7 @@ public class Life {
     }
 
     public void setNicknameFor(Life me, String nicknameString) {
-        System.out.println("CALL ME "+nicknameString.toUpperCase());
+        System.out.println("CALL ME " + nicknameString.toUpperCase());
         if(nicknameString == "mommy")
             System.out.println("JUST LIKE YOUR FANTASY");
         return ;
@@ -68,6 +68,7 @@ public class Life {
     
     public void announce(String announceString) {
         System.out.println(announceString);
+        System.out.println();
         System.out.println();
     }
 
@@ -105,18 +106,16 @@ public class Life {
     public Boolean isMe() {
         return this.bMe;
     }
-    
+
     public Boolean isYou() {
         Boolean ret = null;
-        try{
+        try {
             ret = !this.bMe;
             return ret;
-        }catch(java.lang.NullPointerException e) {
+        } catch(java.lang.NullPointerException e) {
             return null;
         }
     }
-
-
 
     public void sayTo(String msgString, Life recipientLife) {
         new World().sendMessage(msgString, recipientLife);
@@ -136,7 +135,7 @@ public class Life {
                 System.out.println("Sit");
                 break;
             case "fetch":
-                System.out.println("fetch you leash");
+                System.out.println("Fetch your leash");
                 break;
             case "strip":
                 System.out.println("Show me");
@@ -153,11 +152,12 @@ public class Life {
             case "listen":
                 System.out.println("Hear me out");
                 break;
-            case "be quiet":
+            case "be quite":  // typo in the official video
                 if(!shutUp) {
                     System.out.println("If you'd just");
                     shutUp = true;
-                } else shutUp = null;
+                } else
+                    shutUp = null;
                 System.out.println("SHUT UP");
                 break;
             default:
@@ -222,15 +222,17 @@ public class Life {
         try {
             throw new Tantrum();
         } catch (Tantrum e) {
-            System.out.println("Our bodies grew, our minds stayed the same\n");
+            System.out.println("Our bodies grew, our minds stayed the same");
+            System.out.println();
+            System.out.println();
         }
     }
 
     public void ask(Life life, String questionString) {
         if(this.isMe()) {
-            System.out.println("Now darling, where do we go from here?");
+            System.out.println("Now, darling, where do we go from here?");
         } else if(this.isYou()) {
-            System.out.println("Hey honey, where do we go from here?");
+            System.out.println("Hey, honey, where do we go from here?");
         }
     }
 
@@ -259,7 +261,9 @@ public class Life {
     public void disorient(Life me) {
         System.out.println("MUX>>>DEMUX");
         System.out.println("Can't you understand me?");
-        System.out.println("You turn my screen #0000ff\n");
+        System.out.println("You turn my screen #0000ff");
+        System.out.println();
+        System.out.println();
     }
 
     public LinkedList<War> getOngoingFights() {
@@ -280,7 +284,7 @@ public class Life {
     }
 
     public void setMemory(Life memoryLife, Integer value) {
-        System.out.println("It's all just sunk const, I know");
+        System.out.println("It's all just sunk cost, I know");
         System.out.println("But I'm not ready to stop");
     }
 
@@ -312,13 +316,14 @@ public class Life {
     public Memory getMemory(Life you, String emotion) {
         return new Memory(0, you);
     }
-    public Life getMemory(Life you) {
-        System.out.println("I don't want to stop");
-        return you;
+    public Life getMemory(Life life) {
+        if (life.isYou())
+            System.out.println("I don't want to stop");
+        return life;
     }
     
     public void praise(Life recipientLife, String contentString) {
-        System.out.println(contentString);
+        System.out.println("g 0 0 d    b o i");
     }
 
     public void gift(Life recipientLife, String giftString) {

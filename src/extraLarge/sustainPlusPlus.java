@@ -6,11 +6,13 @@ package extraLarge;
  *
  * @author Cassie Wei from Mili
  */
-class sustainPlusPlus {
+public class sustainPlusPlus {
     public static void main(String[] args) {
         World world = new World();
         Life me = new Ghost();
         Life you = new Ghost();
+
+
 
         /**
          * If abstraction is the definition of beauty
@@ -18,12 +20,14 @@ class sustainPlusPlus {
          * A representation of ugly?
          */
         world.getWorldObjects().sortAttribute("beauty");
-        if (world.getWorldObjects().getFirst().getArtTags().indexOf("abstruct") != -1) {
+        if (world.getWorldObjects().getFirst().getArtTags().indexOf("abstract") != -1) {
             me.addPhysicalAttribute("ugly");
             you.addPhysicalAttribute("ugly");
         }
         world.giveBestAward("ugly", me);
         world.giveBestAward("ugly", you);
+
+
 
         /**
          * CALL ME MOMMY
@@ -36,6 +40,8 @@ class sustainPlusPlus {
         }
         Rule r = new Rule("Oedipus complex is okay", true);
         world.addRule(r);
+
+
 
         /**
          * MUX>>DEMUX
@@ -50,6 +56,8 @@ class sustainPlusPlus {
             me.announce("Ah");
         }
 
+
+
         /**
          * This could end right here if you don't let it out
          * Let it out
@@ -62,6 +70,8 @@ class sustainPlusPlus {
                 world.getRelationship(me, you).end();
             }
         }
+
+
 
         /**
          * Give up or give me your all
@@ -78,6 +88,8 @@ class sustainPlusPlus {
             world.getRelationship(me, you).increaseSustain();
         }
 
+
+
         /**
          * If we can be completely simulated
          * Do we need a real reality?
@@ -87,8 +99,10 @@ class sustainPlusPlus {
             world.execute(me);
         }
 
+
+
         /**
-         * Don't let words-die, let love run dry
+         * Don't let words die, let love run dry
          * Like what we did to the rivers we killed off in our near future
          * Ah
          */
@@ -96,6 +110,8 @@ class sustainPlusPlus {
             me.sayTo("I love you.", you);
             you.sayTo("I love you.", me);
         }
+
+
 
         /**
          * And mumble some stupid stuff
@@ -112,14 +128,18 @@ class sustainPlusPlus {
             you.fight(them);
         }
 
+
+
         /**
          * Sit
-         * fetch you leash
+         * Fetch you leash
          * DICTATED ECONOMY
          */
         me.command(you, "sit");
         me.command(you, "fetch");
         you.pay(me, you.getFinanceProperties(), "educational purposes");
+
+
 
         /**
          * Show me
@@ -130,6 +150,8 @@ class sustainPlusPlus {
         me.command(you, "exhabit");
         world.addPollution("environmental", "indecency", you);
 
+
+
         /**
          * Stay
          * Okay, eat
@@ -139,14 +161,18 @@ class sustainPlusPlus {
         me.command(you, "eat");
         you.love(me);
 
+
+
         /**
-         * g 0 0 d   b o i
+         * g 0 0 d    b o i
          * Here's a treat
          * HUNGRY FOR ENERGY
          */
         me.praise(you, "Good boy.");
         me.gift(you, "meat");
         you.consumeLast();
+
+
 
         /**
          * We are searching
@@ -173,6 +199,8 @@ class sustainPlusPlus {
             me.removeFamily(g);
         }
 
+
+
         /**
          * We keep chasing
          * Dreaming about the perfect being
@@ -186,20 +214,28 @@ class sustainPlusPlus {
             me.throwTantrum();
         }
 
-        /**
-         * Now darling, where do we go from here?
-         */
-        me.ask(you, "Where do we go from here?");
+
 
         /**
          * Now darling, where do we go from here?
          */
         me.ask(you, "Where do we go from here?");
 
+
+
         /**
          * Now darling, where do we go from here?
          */
         me.ask(you, "Where do we go from here?");
+
+
+
+        /**
+         * Now darling, where do we go from here?
+         */
+        me.ask(you, "Where do we go from here?");
+
+
 
         /**
          * Darling, darling
@@ -207,30 +243,42 @@ class sustainPlusPlus {
         me.callFor(you);
         me.callFor(you);
 
-        /**
-         * Hey honey, where do we go from here?
-         */
-        you.ask(me, "Where do we go from here?");
+
 
         /**
          * Hey honey, where do we go from here?
          */
         you.ask(me, "Where do we go from here?");
 
+
+
         /**
-         * Now darling, where do we go from here?
+         * Hey honey, where do we go from here?
          */
-        me.ask(you, "Where do we go from here?");
+        you.ask(me, "Where do we go from here?");
+
+
 
         /**
          * Now darling, where do we go from here?
          */
         me.ask(you, "Where do we go from here?");
+
+
+
+        /**
+         * Now darling, where do we go from here?
+         */
+        me.ask(you, "Where do we go from here?");
+
+
 
         /**
          * To where?
          */
         me.ask(world, "To where?");
+
+
 
         /**
          * CALL ME DADDY
@@ -242,12 +290,16 @@ class sustainPlusPlus {
             "red", "green", "yellow"};
         you.setVocabulary(vocab);
 
+
+
         /**
          * MUX>>>DEMUX
          * Can't you understand me?
          * You turn my screen #0000ff
          */
         you.disorient(me);
+
+
 
         /**
          * We could end right here if you'd just let us fall
@@ -259,6 +311,8 @@ class sustainPlusPlus {
                 world.execute(you);
             }
         }
+
+
 
         /**
          * No tears, no regrets
@@ -273,6 +327,8 @@ class sustainPlusPlus {
             v.setAuthors(null);
         }
 
+
+
         /**
          * Hear me out
          * It's a perfect plan
@@ -280,19 +336,23 @@ class sustainPlusPlus {
         me.command(you, "listen");
         me.sayTo("Anything inconvenient, I shall erase for you.", you);
 
+
+
         /**
          * If you'd just
          * SHUT UP
          * SHUT UP
          * Then maybe you'll see what I've endured now
          */
-        me.command(you, "be quiet");
-        me.command(you, "be quiet");
+        me.command(you, "be quite");
+        me.command(you, "be quite");
         try {
             you.listenTelepathically(me, world);
         } catch (NotAMindReaderException e) {
             world.getRelationship(me, you).challenge();
         }
+
+
 
         /**
          * Hear me out
@@ -303,8 +363,10 @@ class sustainPlusPlus {
         you.ignoreCommands();
         you.setMessages(null);
 
+
+
         /**
-         * It's all just sunk const, I know
+         * It's all just sunk cost, I know
          * But I'm not ready to stop
          */
         me.manipulate(you, "beg");
@@ -313,6 +375,8 @@ class sustainPlusPlus {
         me.manipulate(you, "tears");
         world.getRelationship(me, you).end();
         you.setMemory(me, null);
+
+
 
         /**
          * I don't want to stop
@@ -344,6 +408,8 @@ class sustainPlusPlus {
         me.getMemory(you);
         world.setRelationship(me, you, null);
 
+
+
         //    a
         // u
         //     i
@@ -359,7 +425,7 @@ class sustainPlusPlus {
         // u   in +
         //s        ;
         //   ta n+
-        //
+        //       ++
         // u t  n +
         //s    in
         //   t  n+ ;
@@ -373,7 +439,7 @@ class sustainPlusPlus {
         // us a n +;
         //  s ain+
         //su  ai  +;
-        //s  tain+
+        //s  tain  ;
         // ust  n +
         //s stai + ;
         //su t in +;
