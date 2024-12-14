@@ -21,15 +21,13 @@ def java_expect_output(self: unittest.TestCase, jar_path: str, expected_path: st
 class TestOutput(unittest.TestCase):
     def test_extraLarge(self):
         self.maxDiff = 4000
-        jar_path = '../extraLarge.jar'
-        expected_path = './extraLarge.txt'
-        java_expect_output(self, jar_path, expected_path, 'utf-8')
+        java_expect_output(self, jar_path='../extraLarge.jar', expected_path='./extraLarge.txt',
+                           encoding='utf-8')
 
     def test_goddrinksjava(self):
         self.maxDiff = 4000
-        jar_path = '../goddrinksjava.jar'
-        expected_path = './goddrinksjava.txt'
-        java_expect_output(self, jar_path, expected_path, 'utf-8')
+        java_expect_output(self, jar_path='../goddrinksjava.jar', expected_path='./goddrinksjava.txt',
+                           encoding='utf-8')
 
 if __name__ == "__main__":
     unittest.main()

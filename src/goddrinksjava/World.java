@@ -60,7 +60,10 @@ public class World {
 
 	public Thing getGod() {
 		System.out.println("If I'm the only god");
-		return (Thing) things.toArray()[1];
+		for (Thing t : things)
+			if (t.getName() == "Me")
+				return t;
+		return null;
 	}
 
 	public void procreate(Thing... things) {
