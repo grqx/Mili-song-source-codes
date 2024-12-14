@@ -1,0 +1,32 @@
+name: Tests
+run-name: Run tests
+on: push
+jobs:
+    testOutput:
+        name: Test Output
+        timeout-minutes: 3
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v4
+
+          - uses: actions/setup-java@v4
+            with:
+              distribution: 'oracle'
+              java-version: '21'
+
+          - uses: actions/setup-python@v5
+            with:
+                python-version: '3.13' 
+
+          - name: Pack jars
+            run: |
+              sudo chmod a+rx ./goddrinksjava.pack.sh
+              ./goddrinksjava.pack.sh
+              sudo chmod a+rx ./extraLarge.pack.sh
+              ./extraLarge.pack.sh
+
+          - name: Run tests
+            run: |
+              cd test/
+              python3 -m test_output.py
