@@ -29,4 +29,4 @@ jobs:
           - name: Run tests
             run: |
               cd test/
-              python3 -m test_output.py
+              python3 test_output.py
