@@ -199,7 +199,7 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
 			ConcurrentMusicPlayer.nextSentence();
 			System.out.println("You have left me in");
 			ConcurrentMusicPlayer.nextSentence();
-			System.out.println("ISOLATION");
+			System.out.println("ISOLATION\n");
 		} else {
 			ConcurrentMusicPlayer.nextSentence();
 			System.out.println("You have left");

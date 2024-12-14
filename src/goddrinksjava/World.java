@@ -36,7 +36,7 @@ public class World {
 		ConcurrentMusicPlayer.nextSentence();
 		System.out.println("And let's begin the");
 		ConcurrentMusicPlayer.nextSentence();
-		System.out.println("SIMULATION");
+		System.out.println("SIMULATION\n");
 	}
 
 	public void timeTravelForTwo(String kinen, int year, Thing... thing) {

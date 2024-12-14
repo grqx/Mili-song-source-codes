@@ -6,7 +6,7 @@ on:
         paths: 
             - 'src/**'
 permissions: write-all
-jobs: 
+jobs:
     Jarpacker1:
         runs-on: ubuntu-latest
         timeout-minutes: 2
@@ -16,14 +16,31 @@ jobs:
         steps:
           - name: Checkout
             uses: actions/checkout@v4
+
           - uses: actions/setup-java@v4
             with:
               distribution: 'oracle'
               java-version: '21'
+
           - name: pack extraLarge(sustain++;)
             run: |
               sudo chmod a+rx ./extraLarge.pack.sh
               ./extraLarge.pack.sh
+
+          - name: Delete Releases
+            uses: sgpublic/delete-release-action@v1.2
+            with:
+              release-drop: true
+              release-keep-count: -1
+              release-drop-tag: true
+              pre-release-drop: true
+              pre-release-keep-count: -1
+              pre-release-drop-tag: true
+              draft-drop: true
+              draft-drop-count: -1
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
           - name: upload to Release
             uses: softprops/action-gh-release@v2.0.5
             with:
@@ -50,11 +67,13 @@ jobs:
             with:
               distribution: 'oracle'
               java-version: '21'
+
           - name: pack goddrinksjava(world.execute(me);)
             run: |
               sudo chmod a+rx ./goddrinksjava.pack.sh
               ./goddrinksjava.pack.sh
-              tar -cJvf goddrinksjava.tar.gz media/ goddrinksjava.jar
+              tar -cJvf goddrinksjava.tar.gz media/goddrinksjava.wav goddrinksjava.jar
+
           - name: upload to Release
             uses: softprops/action-gh-release@v2.0.5
             with:
