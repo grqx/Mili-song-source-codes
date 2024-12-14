@@ -14,29 +14,37 @@ public class World {
 
 	public World(int var1) {
 		this.var1 = var1;
+		ConcurrentMusicPlayer.nextSentence();
 		System.out.println("OBJECT CREATION");
 	}
 
 	public void addThing(Thing thing) {
 		if (thing.getName().equals("Me")) {
-			System.out.println("Fill in my data");
+			ConcurrentMusicPlayer.nextSentence();
+			System.out.print("Fill in my data");
 		} else {
-			System.out.println("parameters\n" +
-					"INITIALIZATION");
+			System.out.println(" parameters");
+			ConcurrentMusicPlayer.nextSentence();
+			System.out.println("INITIALIZATION");
 		}
 		things.add(thing);
 	}
 
 	public void startSimulation() {
-		System.out.println("Set up our new world\n" +
-				"And let's begin the\n" +
-				"SIMULATION\n");
+		ConcurrentMusicPlayer.nextSentence();
+		System.out.println("Set up our new world");
+		ConcurrentMusicPlayer.nextSentence();
+		System.out.println("And let's begin the");
+		ConcurrentMusicPlayer.nextSentence();
+		System.out.println("SIMULATION");
 	}
 
 	public void timeTravelForTwo(String kinen, int year, Thing... thing) {
 		if (kinen.equals("AD")) {
-			System.out.print("Oh, we can travel\n" +
-					"To A.D., ");
+			ConcurrentMusicPlayer.nextSentence();
+			System.out.println("Oh, we can travel");
+			ConcurrentMusicPlayer.nextSentence();
+			System.out.print("To A.D. ");
 		} else {
 			System.out.println("to B.C.");
 		}
@@ -45,20 +53,26 @@ public class World {
 	}
 
 	public void unite(Thing... things) {
-		System.out.println("And we can unite\n" +
-					"So deeply, so deeply\n");
+		ConcurrentMusicPlayer.nextSentence();
+		System.out.println("And we can unite");
+		ConcurrentMusicPlayer.nextSentence();
+		System.out.println("So deeply, so deeply\n");
 	}
 
 	public void lockThing(Thing thing) {
 		if (thing.getName().equals("Me")) {
+			ConcurrentMusicPlayer.nextSentence();
 			System.out.println("Though we are trapped");
 		} else {
-			System.out.println("In this strange, strange\n" +
-					"SIMULATION\n");
+			ConcurrentMusicPlayer.nextSentence();
+			System.out.println("In this strange, strange");
+			ConcurrentMusicPlayer.nextSentence();
+			System.out.println("SIMULATION\n");
 		}
 	}
 
 	public Thing getGod() {
+		ConcurrentMusicPlayer.nextSentence();
 		System.out.println("If I'm the only god");
 		for (Thing t : things)
 			if (t.getName() == "Me")
@@ -67,20 +81,25 @@ public class World {
 	}
 
 	public void procreate(Thing... things) {
-		System.out.println("And then do whatever\n" +
-				"From AM to PM");
+		ConcurrentMusicPlayer.nextSentence();
+		System.out.println("And then do whatever");
+		ConcurrentMusicPlayer.nextSentence();
+		System.out.println("From AM to PM");
 	}
 
 	public void makeHigh(Thing thing) {
 		if (thing.getName().equals("Me")) {
-			System.out.print("So we can enter\n" +
-					"The trance, ");
+			ConcurrentMusicPlayer.nextSentence();
+			System.out.println("So we can enter");
+			ConcurrentMusicPlayer.nextSentence();
+			System.out.print("The trance, ");
 		} else {
 			System.out.println("the trance\n");
 		}
 	}
 
 	public void unlock(Thing thing) {
+		ConcurrentMusicPlayer.nextSentence();
 		System.out.println("Though you have left\n");
 	}
 
@@ -89,8 +108,10 @@ public class World {
 	}
 
 	public int getThingIndex(Thing thing) {
-		System.out.println("If I can have you back\n" +
-				"I will run the");
+		ConcurrentMusicPlayer.nextSentence();
+		System.out.println("If I can have you back");
+		ConcurrentMusicPlayer.nextSentence();
+		System.out.println("I will run the");
 		return 0;
 	}
 
@@ -119,20 +140,26 @@ public class World {
 					break;
 			}
 		}
+		ConcurrentMusicPlayer.nextSentence();
 		System.out.println(args[0]);
 	}
 
 	public void runExecution() {
+		ConcurrentMusicPlayer.nextSentence();
 		System.out.println("EXECUTION");
 	}
 
 	public boolean isExecutableBy(Thing thing) {
-		System.out.println("\nIf I can\n" +
-				"If I can give them all the");
+		System.out.println();
+		ConcurrentMusicPlayer.nextSentence();
+		System.out.println("If I can");
+		ConcurrentMusicPlayer.nextSentence();
+		System.out.println("If I can give them all the");
 		return things.contains(thing);
 	}
 
 	public void execute(Thing thing) {
-		System.out.println("\nEXECUTION");
+		ConcurrentMusicPlayer.nextSentence();
+		System.out.println("EXECUTION");
 	}
 }

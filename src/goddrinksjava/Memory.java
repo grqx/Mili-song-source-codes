@@ -5,6 +5,7 @@ package goddrinksjava;
  */
 public class Memory {
 	public boolean isErasable() {
+		ConcurrentMusicPlayer.nextSentence();
 		System.out.println("FRAGMENTS");
 		return true;
 	}

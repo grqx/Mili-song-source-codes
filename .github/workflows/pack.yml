@@ -32,9 +32,9 @@ jobs:
               tag_name: 'latest'
               name: 'Packed jar'
               body: |
-                  # Packed code into jar file
-                  You can now run `java -jar goddrinksjava.jar` or `java -jar extraLarge.jar`
-                  If you can't find the jar, there can be some problem with the code. Clone and run the `goddrinksjava.pack.bat` or `extraLarge.pack.bat` yourself!
+                # Packed code into jar file
+                You can now run `java -jar goddrinksjava.jar` or `java -jar extraLarge.jar`
+                If you can't find the jar, there can be some problem with the code. Clone and run the build scripts yourself!
               fail_on_unmatched_files: true
     Jarpacker2:
         needs: Jarpacker1
@@ -54,15 +54,16 @@ jobs:
             run: |
               sudo chmod a+rx ./goddrinksjava.pack.sh
               ./goddrinksjava.pack.sh
+              tar -cJvf goddrinksjava.tar.gz media/ goddrinksjava.jar
           - name: upload to Release
             uses: softprops/action-gh-release@v2.0.5
             with:
-              files: goddrinksjava.jar
+              files: goddrinksjava.tar.gz
               token: ${{ secrets.GITHUB_TOKEN }}
               tag_name: 'latest'
               name: 'Packed jar'
               body: |
-                  # Packed code into jar file
-                  You can now run `java -jar goddrinksjava.jar` or `java -jar extraLarge.jar`
-                  If you can't find the jar, there can be some problem with the code. Clone and run the `goddrinksjava.pack.bat` or `extraLarge.pack.bat` yourself!
+                # Packed code into jar file
+                You can now run `java -jar goddrinksjava.jar` or `java -jar extraLarge.jar`
+                If you can't find the jar, there can be some problem with the code. Clone and run the build scripts yourself!
               fail_on_unmatched_files: true

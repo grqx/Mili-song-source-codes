@@ -4,13 +4,11 @@ PROTECTION
 Lay down your pieces
 And let's begin
 OBJECT CREATION
-Fill in my data
-parameters
+Fill in my data parameters
 INITIALIZATION
 Set up our new world
 And let's begin the
 SIMULATION
-
 If I'm a set of points
 Then I will give you my
 DIMENSION
@@ -29,7 +27,7 @@ To AC, to DC
 And then blind my vision
 So dizzy, so dizzy
 Oh, we can travel
-To A.D., to B.C.
+To A.D. to B.C.
 And we can unite
 So deeply, so deeply
 
@@ -82,7 +80,6 @@ You have left
 You have left
 You have left me in
 ISOLATION
-
 If I can
 If I can erase all the pointless
 FRAGMENTS
@@ -123,7 +120,7 @@ If I can have you back
 I will run the
 EXECUTION
 Though we are trapped
-We are trapped, ah
+We are trapped ah
 
 I've studied
 I've studied how to properly
@@ -131,11 +128,11 @@ LO-O-OVE
 Question me
 Question me, I can answer all
 LO-O-OVE
-I know the
-algebraic expression of
+I know the algebraic expression of
 LO-O-OVE
 Though you are free
-I am trapped, trapped in
+I am trapped
+Trapped in
 LO-O-OVE
 
 EXECUTION
