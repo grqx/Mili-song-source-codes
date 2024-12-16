@@ -9,7 +9,7 @@ import music_player.ConcurrentMusicPlayer;
  * Created by syuchan on 2016/10/17.
  */
 public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, Tomato, TabbyCat {
-	private static ConcurrentMusicPlayer concurrentMusicPlayer = new ConcurrentMusicPlayer(LyricsTimestamps.TIMESTAMPS_DIFF, "media/goddrinksjava.wav");
+	private static ConcurrentMusicPlayer concurrentMusicPlayer = new ConcurrentMusicPlayer(new MusicPlayerCfg());
 	private String name;
 	private Set<Attribute> attributes = new HashSet<>();
 	private OriginalSet<Dimension> dimensions = new OriginalSet<>();

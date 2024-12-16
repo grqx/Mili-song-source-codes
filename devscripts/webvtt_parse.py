@@ -7,7 +7,7 @@ def calculate_diff_list(lst):
     Given a list `lst` with length n, return a diff list of length n-1
     where diff_list[i] = lst[i + 1] - lst[i]
     """
-    return [lst[i + 1] - lst[i] for i in range(len(lst) - 1)]
+    return [lst[i] - lst[i - 1] if i != 0 else lst[i] for i in range(len(lst))]
 
 def parse_webvtt(file_content):
     timestamp_pattern = re.compile(r'(\d{2}):(\d{2}):(\d{2})\.(\d{3})\s-->\s(\d{2}):(\d{2}):(\d{2})\.(\d{3})')

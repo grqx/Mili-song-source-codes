@@ -18,5 +18,5 @@ if defined EXTRA_DEPS_SRC (
 )
 javac -d "%PROJ_OUT%" !JAVA_FILES!
 jar -cfe "%JAR_FILE%" "%MAIN_CLASS%" -C "%PROJ_OUT%" .
-rmdir /s /q "%PROJ_OUT%"
+rmdir /s /q "%OUT_DIR%"
 endlocal

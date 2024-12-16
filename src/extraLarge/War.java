@@ -1,5 +1,7 @@
 package extraLarge;
 
+import music_player.ConcurrentMusicPlayer;
+
 public class War {
     private String descString = null;
     private Life warParticipant = null;
@@ -11,7 +13,6 @@ public class War {
 
     public double getScore(Life participantLife) {
         if(participantLife == warParticipant) {
-            System.out.println("Let us fall");
             return 0.49;
         }
         return 0.5;

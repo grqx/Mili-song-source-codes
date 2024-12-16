@@ -8,16 +8,16 @@ public class ConcurrentMusicPlayer {
     private MusicPlayer musicPlayer = new MusicPlayer();
     private final ExecutorService executor = Executors.newFixedThreadPool(2);
     private static int sleepCnt = 0;
-    private static boolean enabled;
-    public static long TIMESTAMPS_DIFF[];
+    private static boolean enabled = false;
+    private static PlayerConfigInterface pci = null;
 
-    public ConcurrentMusicPlayer(long timestamps_diff[], String musicFilePath) {
-        TIMESTAMPS_DIFF = timestamps_diff;
-        File f = new File(musicFilePath);
+    public ConcurrentMusicPlayer(PlayerConfigInterface pci_) {
+        pci = pci_;
+        File f = new File(pci.getFilePath());
         enabled = f.exists() && !f.isDirectory();
         executor.submit(() -> {
             if (enabled)
-                musicPlayer.loadAndPlay(musicFilePath);
+                musicPlayer.loadAndPlay(pci.getFilePath());
             executor.shutdownNow();
         });
     }
@@ -32,6 +32,6 @@ public class ConcurrentMusicPlayer {
 
     public static void nextSentence() {
         if (enabled)
-            threadSleep(TIMESTAMPS_DIFF[sleepCnt++]);
+            threadSleep(pci.getDiff()[sleepCnt++]);
     }
 }

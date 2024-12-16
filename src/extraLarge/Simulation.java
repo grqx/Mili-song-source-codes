@@ -1,5 +1,7 @@
 package extraLarge;
 
+import music_player.ConcurrentMusicPlayer;
+
 public class Simulation {
     Life me = null;
     World world = null;
@@ -10,6 +12,7 @@ public class Simulation {
         this.world = world;
         this.year = year;
         this.time = time;
+        ConcurrentMusicPlayer.nextSentence();
         System.out.println("If we can be completely simulated");
     }
 

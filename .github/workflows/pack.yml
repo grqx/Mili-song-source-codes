@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   push: 
     paths: 
-      - 'src/**'
+    - 'src/**'
+    - 'media/**'
 env:
   RELEASE_BODY: |
     # Packed code into jar file

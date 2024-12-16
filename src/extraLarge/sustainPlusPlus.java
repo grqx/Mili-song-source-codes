@@ -44,7 +44,7 @@ public class sustainPlusPlus {
 
 
         /**
-         * MUX>>DEMUX
+         * MUX>>>DEMUX
          * Can't you understand me?
          * I'm not mine NAND I'm not yours
          * Ah

@@ -1,5 +1,7 @@
 package extraLarge;
 
+import music_player.ConcurrentMusicPlayer;
+
 public class Message {
     private String actualString = new String();
     private boolean muxed = false;
@@ -11,22 +13,21 @@ public class Message {
         return muxed;
     }
 
-    public boolean SwitchMuxed() {
+    public boolean switchMuxed() {
         muxed = !muxed;
         return this.getMuxed();
     }
 
     public Message Mux() {
         if(!muxed)
-            this.SwitchMuxed();
+            this.switchMuxed();
         return this;
     }
 
-    public Message Demux() throws InsufficientIntelligenceQuotientException{
-        if(this.muxed){
-            System.out.println("Can't you understand me?");
+    public Message demux() throws InsufficientIntelligenceQuotientException{
+        if(this.muxed) {
             throw new InsufficientIntelligenceQuotientException();
-        }else return this;
+        } else return this;
     }
 
 

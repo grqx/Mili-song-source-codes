@@ -10,4 +10,4 @@ rm -rf "$PROJ_OUT"
 mkdir -p "$PROJ_OUT"
 javac -d "$PROJ_OUT" $(find "$PROJ_SRC" -name "*.java") $EXTRA_DEPS_SRC
 jar -cfe "$JAR_FILE" "$MAIN_CLASS" -C "$PROJ_OUT" .
-rm -rf "$PROJ_OUT"
+rm -rf "$OUT_DIR"
