@@ -1,8 +1,6 @@
 package goddrinksjava;
 
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
 
 import music_player.PlayerConfigInterface;
 
@@ -17,20 +15,17 @@ public class MusicPlayerCfg implements PlayerConfigInterface {
          820, 1220, 880, 960, 960, 900, 421, 336, 587, 449, 431, 460, 1048, 683, 1851, 850, 1006,
          1889, 913, 2044, 844, 931, 1332, 2271, 927, 1756, 928, 1044, 1745, 894, 3125, 818, 1263,
          1055, 555, 14455};
-    private final static String MUSIC_FILE_PATH = "media/goddrinksjava.wav";
-    
+    private final static String MUSIC_FILE_PATH = "resources/goddrinksjava.wav";
+
     @Override
     public long[] getDiff() {
         return TIMESTAMPS_DIFF;
     }
+
     @Override
-    public String getFilePath() {
-        Path jarPath = null;
-        try {
-            jarPath = Paths.get(GodDrinksJava.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParent();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        return jarPath.resolve(MUSIC_FILE_PATH).toString();
+    public InputStream getInputStream() {
+        String envCIString = System.getenv("CI");
+        return envCIString != null && envCIString.equals("true") ? null :
+               GodDrinksJava.class.getClassLoader().getResourceAsStream(MUSIC_FILE_PATH);
     }
 }

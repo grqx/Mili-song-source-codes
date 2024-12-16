@@ -1,23 +1,22 @@
 package music_player;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import java.io.File;
+import java.io.InputStream;
 
 public class ConcurrentMusicPlayer {
     private MusicPlayer musicPlayer = new MusicPlayer();
     private final ExecutorService executor = Executors.newFixedThreadPool(2);
     private static int sleepCnt = 0;
     private static boolean enabled = false;
-    private static PlayerConfigInterface pci = null;
+    private static PlayerConfigInterface pc = null;
 
-    public ConcurrentMusicPlayer(PlayerConfigInterface pci_) {
-        pci = pci_;
-        File f = new File(pci.getFilePath());
-        enabled = f.exists() && !f.isDirectory();
+    public ConcurrentMusicPlayer(PlayerConfigInterface pci) {
+        pc = pci;
+        InputStream is = pc.getInputStream();
+        enabled = is != null;
         executor.submit(() -> {
             if (enabled)
-                musicPlayer.loadAndPlay(pci.getFilePath());
+                musicPlayer.loadAndPlay(is);
             executor.shutdownNow();
         });
     }
@@ -32,6 +31,6 @@ public class ConcurrentMusicPlayer {
 
     public static void nextSentence() {
         if (enabled)
-            threadSleep(pci.getDiff()[sleepCnt++]);
+            threadSleep(pc.getDiff()[sleepCnt++]);
     }
 }

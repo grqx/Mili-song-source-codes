@@ -11,6 +11,8 @@ env:
     # Packed code into jar file
     You can now run `java -jar goddrinksjava.jar` or `java -jar extraLarge.jar`
     If you can't find the jar, there can be some problem with the code. Clone and run the build scripts yourself!
+  RELEASE_NAME: Packed jar
+  RELEASE_TAG: latest
 permissions: write-all
 jobs:
   Jarpacker1:
@@ -52,8 +54,8 @@ jobs:
       with:
         files: extraLarge.jar
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag_name: 'latest'
-        name: 'Packed jar'
+        tag_name: ${{ env.RELEASE_TAG }}
+        name: ${{ env.RELEASE_NAME }}
         body: ${{ env.RELEASE_BODY }}
         fail_on_unmatched_files: true
   Jarpacker2:
@@ -75,14 +77,13 @@ jobs:
       run: |
         find -name '*.sh' | xargs sudo chmod a+rx
         ./goddrinksjava.pack.sh
-        tar -cJvf goddrinksjava.tar.gz media/goddrinksjava.wav goddrinksjava.jar
 
     - name: upload to Release
       uses: softprops/action-gh-release@v2.0.5
       with:
-        files: goddrinksjava.tar.gz
+        files: goddrinksjava.jar
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag_name: 'latest'
-        name: 'Packed jar'
+        tag_name: ${{ env.RELEASE_TAG }}
+        name: ${{ env.RELEASE_NAME }}
         body: ${{ env.RELEASE_BODY }}
         fail_on_unmatched_files: true

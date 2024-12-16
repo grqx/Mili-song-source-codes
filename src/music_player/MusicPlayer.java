@@ -1,7 +1,11 @@
 package music_player;
 import javax.sound.sampled.*;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by unusuallman on 2022/05/25.
@@ -17,15 +21,14 @@ public class MusicPlayer {
         this.isPlaying = false;
     }
 
-    public void loadAndPlay(String musicFilePath) {
+    public void loadAndPlay(InputStream is) {
         if (isPlaying) {
             System.err.println("Music is already playing.");
             return;
         }
 
         try {
-            File musicFile = new File(musicFilePath);
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(musicFile);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(new BufferedInputStream(is));
             AudioFormat format = audioStream.getFormat();
 
             DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
@@ -46,6 +49,22 @@ public class MusicPlayer {
             line.close();
             audioStream.close();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadAndPlay(String musicFilePath) {
+        try {
+            loadAndPlay(new FileInputStream(musicFilePath));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadAndPlay(File musicFile) {
+        try {
+            loadAndPlay(new FileInputStream(musicFile));
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }

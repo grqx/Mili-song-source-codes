@@ -1,8 +1,6 @@
 package extraLarge;
 
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
 
 import music_player.PlayerConfigInterface;
 
@@ -14,20 +12,17 @@ public class MusicPlayerCfg implements PlayerConfigInterface {
          3840, 4640, 3880, 3840, 4080, 3480, 3760, 3680, 3960, 3320, 2560, 1800, 2160, 3600, 1560,
          2120, 3960, 10840, 4360, 3560, 3920, 3800, 2120, 1760, 2000, 1760, 7360, 2000, 2160, 4480,
          6560};
-    private final static String MUSIC_FILE_PATH = "media/extraLarge.wav";
+    private final static String MUSIC_FILE_PATH = "resources/extraLarge.wav";
     
     @Override
     public long[] getDiff() {
         return TIMESTAMPS_DIFF;
     }
+
     @Override
-    public String getFilePath() {
-        Path jarPath = null;
-        try {
-            jarPath = Paths.get(sustainPlusPlus.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParent();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        return jarPath.resolve(MUSIC_FILE_PATH).toString();
+    public InputStream getInputStream() {
+        String envCIString = System.getenv("CI");
+        return envCIString != null && envCIString.equals("true") ? null :
+               sustainPlusPlus.class.getClassLoader().getResourceAsStream(MUSIC_FILE_PATH);
     }
 }
