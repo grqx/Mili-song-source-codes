@@ -5,8 +5,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ConcurrentMusicPlayer {
+  // TODO: these shouldn't be static
   private static MusicPlayer musicPlayer = new MusicPlayer();
-  private final ExecutorService executor = Executors.newFixedThreadPool(2);
+  private static final ExecutorService executor = Executors.newFixedThreadPool(2);
   private static int sleepCnt = 0;
   private static boolean enabled = false;
   private static PlayerConfigInterface pc = null;
