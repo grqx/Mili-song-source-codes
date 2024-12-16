@@ -1,6 +1,7 @@
 import os
 import sys
 
+
 def rename_files(directory: str, toggle_to: bool | None = None, suffix: str = '.disabled') -> int:
     print('toggle_to:', toggle_to)
     cnt = 0
@@ -25,6 +26,7 @@ def rename_files(directory: str, toggle_to: bool | None = None, suffix: str = '.
                     print(f'Renamed: {old_path!r} -> {new_path!r}')
     return cnt
 
+
 def parse_toggle_to(s: str) -> bool | None:
     s_lower = s.lower()
     if s_lower in ['1', 'true', 'enable', 'on']:
@@ -33,13 +35,15 @@ def parse_toggle_to(s: str) -> bool | None:
         return False
     return None
 
+
 def main() -> None:
-    media_dir = os.path.join(os.path.dirname(__file__), '../media/')
+    media_dir = os.path.join(os.path.dirname(__file__), '../resources/')
     if not os.path.isdir(media_dir):
         print(f'Directory does not exist: {media_dir!r}')
         return
     cnt = rename_files(media_dir, toggle_to=parse_toggle_to(sys.argv[1]) if len(sys.argv) > 1 else None)
     print(f'Renamed {cnt} files')
+
 
 if __name__ == '__main__':
     main()
