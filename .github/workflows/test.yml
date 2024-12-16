@@ -21,7 +21,7 @@ jobs:
 
     - name: Pack jars
       run: |
-        sudo chmod a+rx ./goddrinksjava.pack.sh
+        find -name '*.sh' | xargs sudo chmod a+rx
         ./goddrinksjava.pack.sh
         sudo chmod a+rx ./extraLarge.pack.sh
         ./extraLarge.pack.sh
