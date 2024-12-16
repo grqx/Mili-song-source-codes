@@ -4,7 +4,7 @@ on: push
 jobs:
   testOutput:
     name: Test Output
-    timeout-minutes: 15
+    timeout-minutes: 3
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -27,8 +27,7 @@ jobs:
         ./extraLarge.pack.sh
 
     - name: Run tests
-      timeout-minutes: 10
       run: |
-        python3 devscripts/media_toggle.py
+        python3 devscripts/media_toggle.py disable
         cd test/
         python3 test_output.py
