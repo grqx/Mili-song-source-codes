@@ -2,11 +2,11 @@ Transcribed source code displayed in the background of Mili's songs.
 
 This repo is a fork from [syuchan1005 / Mili-song-source-codes](https://github.com/syuchan1005/Mili-song-source-codes).
 
-source code of `world.execute(me);` is written by syuchan1005
+the source code of `goddrinksjava` is mostly written by `syuchan1005`
+`music_player.MusicPlayer` is mostly based on `unusuallman`'s fork of `syuchan1005`'s repo ([source](https://raw.githubusercontent.com/unusuallman/Mili-song-source-codes/refs/heads/master/src/goddrinksjava/MusicPlayer.java))
 
-- both `world.execute(me);` and `sustain++;`
-Some files have been added to make the source code executable.
-It also displays the lyrics at runtime.
+Some files have been added to make the source code for both `world.execute(me);` and `sustain++;` executable.
+It also displays the lyrics and plays the music at runtime.
 
 
 | source code                                                                       |                                                                                   YouTube                                                                                    |
