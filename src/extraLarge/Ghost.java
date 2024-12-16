@@ -1,4 +1,3 @@
 package extraLarge;
 
-public class Ghost extends Life {
-}
+public class Ghost extends Life {}

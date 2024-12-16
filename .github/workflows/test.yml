@@ -17,10 +17,12 @@ jobs:
 
     - uses: actions/setup-python@v5
       with:
-          python-version: '3.13'
+        python-version: '3.13'
 
     - name: Pack jars
       run: |
+        # disable media to save resources
+        python devscripts/media_toggle.py disable
         find -name '*.sh' | xargs sudo chmod a+rx
         ./goddrinksjava.pack.sh
         sudo chmod a+rx ./extraLarge.pack.sh

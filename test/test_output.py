@@ -1,14 +1,19 @@
-import subprocess
+import os
 import unittest
+import subprocess
 import sys
 
 
 def java_expect_output(self: unittest.TestCase, jar_path: str, expected_path: str, encoding: str | None = None) -> None:
+    self.maxDiff = 4000
     try:
         with open(expected_path, encoding=encoding) as f:
             expected_output = f.read()
 
-        result = subprocess.run(['java', '-jar', jar_path],
+        env = os.environ.copy()
+        env['CI'] = str(True).lower()
+
+        result = subprocess.run(['java', '-jar', jar_path], env=env,
                                 capture_output=True, text=True, check=True)
         result = result.stdout.replace('\r\n', '\n')
         self.assertEqual(result, expected_output, 'actual output does not match expected')
@@ -21,13 +26,11 @@ def java_expect_output(self: unittest.TestCase, jar_path: str, expected_path: st
 
 
 class TestOutput(unittest.TestCase):
-    def test_extraLarge(self):
-        self.maxDiff = 4000
+    def test_extraLarge(self) -> None:
         java_expect_output(self, jar_path='../extraLarge.jar', expected_path='./extraLarge.txt',
                            encoding='utf-8')
 
-    def test_goddrinksjava(self):
-        self.maxDiff = 4000
+    def test_goddrinksjava(self) -> None:
         java_expect_output(self, jar_path='../goddrinksjava.jar', expected_path='./goddrinksjava.txt',
                            encoding='utf-8')
 

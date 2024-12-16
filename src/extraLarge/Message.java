@@ -1,37 +1,35 @@
 package extraLarge;
 
-import music_player.ConcurrentMusicPlayer;
 
 public class Message {
-    private String actualString = new String();
-    private boolean muxed = false;
-    public Message(String actualString) {
-        this.actualString = actualString;
-    }
+  private String actualString = new String();
+  private boolean muxed = false;
 
-    public boolean getMuxed() {
-        return muxed;
-    }
+  public Message(String actualString) {
+    this.actualString = actualString;
+  }
 
-    public boolean switchMuxed() {
-        muxed = !muxed;
-        return this.getMuxed();
-    }
+  public boolean getMuxed() {
+    return muxed;
+  }
 
-    public Message Mux() {
-        if(!muxed)
-            this.switchMuxed();
-        return this;
-    }
+  public boolean switchMuxed() {
+    muxed = !muxed;
+    return this.getMuxed();
+  }
 
-    public Message demux() throws InsufficientIntelligenceQuotientException{
-        if(this.muxed) {
-            throw new InsufficientIntelligenceQuotientException();
-        } else return this;
-    }
+  public Message Mux() {
+    if (!muxed) this.switchMuxed();
+    return this;
+  }
 
+  public Message demux() throws InsufficientIntelligenceQuotientException {
+    if (this.muxed) {
+      throw new InsufficientIntelligenceQuotientException();
+    } else return this;
+  }
 
-    public String getMessageContent() {
-        return this.actualString;
-    }
+  public String getMessageContent() {
+    return this.actualString;
+  }
 }

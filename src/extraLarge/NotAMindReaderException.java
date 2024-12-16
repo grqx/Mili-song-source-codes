@@ -1,4 +1,3 @@
 package extraLarge;
 
-public class NotAMindReaderException extends Throwable {
-}
+public class NotAMindReaderException extends Throwable {}

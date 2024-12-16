@@ -1,4 +1,3 @@
 package extraLarge;
 
-public class InsufficientIntelligenceQuotientException extends Throwable {
-}
+public class InsufficientIntelligenceQuotientException extends Throwable {}

@@ -1,4 +1,3 @@
 package extraLarge;
 
-public class Attribute {
-}
+public class Attribute {}

@@ -1,4 +1,3 @@
 package extraLarge;
 
-public class TooMuchOfAPussyException extends Throwable {
-}
+public class TooMuchOfAPussyException extends Throwable {}
