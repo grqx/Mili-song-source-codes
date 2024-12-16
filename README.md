@@ -1,12 +1,13 @@
 Transcribed source code displayed in the background of Mili's songs.
 
-This repo is a fork from [syuchan1005 / Mili-song-source-codes](https://github.com/syuchan1005/Mili-song-source-codes).
+This repo is a fork from [syuchan1005 / Mili-song-source-codes](https://github.com/syuchan1005/Mili-song-source-codes).  
+The source code of `goddrinksjava` is mostly written by `syuchan1005`
 
-the source code of `goddrinksjava` is mostly written by `syuchan1005`
+
 `music_player.MusicPlayer` is mostly based on [`unusuallman`'s fork](https://github.com/unusuallman/Mili-song-source-codes) of `syuchan1005`'s repo ([source](https://github.com/unusuallman/Mili-song-source-codes/blob/master/src/goddrinksjava/MusicPlayer.java) / [raw](https://raw.githubusercontent.com/unusuallman/Mili-song-source-codes/refs/heads/master/src/goddrinksjava/MusicPlayer.java))
 
 Some files have been added to make the source code for both `world.execute(me);` and `sustain++;` executable.
-It also displays the lyrics and plays the music at runtime.
+It also displays the lyrics and plays the music at runtime. `sustainPlusPlus_ending_ver` is just a part of sustainPlusPlus, so I didn't pack a separate package for that.
 
 
 | source code                                                                       |                                                                                   YouTube                                                                                    |
