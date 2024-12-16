@@ -1,12 +1,12 @@
 package extraLarge;
 
-import java.util.LinkedList;
+import java.util.HashSet;
 
 public class World {
     private Boolean giveBestAwardExecuted = false;
     private WorldObjectList worldObjects = new WorldObjectList();
-    private OriginalSet<Rule> rules = new OriginalSet<>();
-    private LinkedList<Relationship> relationships = new LinkedList<>();
+    private HashSet<Rule> rules = new HashSet<>();
+    private HashSet<Relationship> relationships = new HashSet<>();
     private River river = null;
     private Boolean postAskPhase = null;
 
@@ -14,6 +14,11 @@ public class World {
         WorldObject wo1 = new WorldObject();
         this.worldObjects.add(0,wo1);
     }
+
+    public void setPostAskPhase() {
+        postAskPhase = true;
+    }
+
     public void giveBestAward(String attribute, Life life) {
         if(!giveBestAwardExecuted) {
             System.out.println("A representation of ugly?");
@@ -23,6 +28,7 @@ public class World {
             System.out.println();
         }
     }
+
     public WorldObjectList getWorldObjects() {
         return this.worldObjects;
     }
@@ -50,7 +56,7 @@ public class World {
 
     public Relationship getRelationship(Life me, Life you) {
         for (Relationship r : relationships) {
-            if(r!=null)
+            if (r != null)
                 return r;
         }
         return new Relationship(me, you);
@@ -61,7 +67,7 @@ public class World {
         vulnerabilities.add(new Vulnerability("ZeroDays"));
         return vulnerabilities;
     }
-    
+
     public void addRule(Rule rule) {
         this.rules.add(rule);
         if(rule.getRuleString() == "Oedipus complex is okay"){
@@ -97,9 +103,9 @@ public class World {
         }
     }
 
-    public OriginalSet<Life> getLifeTopOnePercent() {
+    public HashSet<Life> getLifeTopOnePercent() {
         System.out.println("I saw it coming");
-        OriginalSet<Life> lifeTopOnePercent = new OriginalSet<>();
+        HashSet<Life> lifeTopOnePercent = new HashSet<>();
         lifeTopOnePercent.add(new Life());
         return lifeTopOnePercent;
     }
@@ -112,9 +118,5 @@ public class World {
         System.out.println("We are searching");
         Ghost[] retGhosts = new Ghost[1];
         return retGhosts;
-    }
-
-    public void setPostAskPhase() {
-        postAskPhase = true;
     }
 }

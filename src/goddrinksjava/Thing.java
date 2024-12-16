@@ -3,11 +3,13 @@ package goddrinksjava;
 import java.util.HashSet;
 import java.util.Set;
 
+import music_player.ConcurrentMusicPlayer;
+
 /**
  * Created by syuchan on 2016/10/17.
  */
 public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, Tomato, TabbyCat {
-	private static ConcurrentMusicPlayer concurrentMusicPlayer = new ConcurrentMusicPlayer();
+	private static ConcurrentMusicPlayer concurrentMusicPlayer = new ConcurrentMusicPlayer(LyricsTimestamps.TIMESTAMPS_DIFF, "media/goddrinksjava.wav");
 	private String name;
 	private Set<Attribute> attributes = new HashSet<>();
 	private OriginalSet<Dimension> dimensions = new OriginalSet<>();
@@ -199,7 +201,7 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
 			ConcurrentMusicPlayer.nextSentence();
 			System.out.println("You have left me in");
 			ConcurrentMusicPlayer.nextSentence();
-			System.out.println("ISOLATION\n");
+			System.out.println("ISOLATION");
 		} else {
 			ConcurrentMusicPlayer.nextSentence();
 			System.out.println("You have left");

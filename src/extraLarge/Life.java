@@ -1,5 +1,6 @@
 package extraLarge;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 
 class FinanceProperty {
@@ -10,8 +11,8 @@ class FinanceProperty {
 }
 
 public class Life {
-    public OriginalSet<Thought> thoughts = new OriginalSet<>();
-    private OriginalSet<Memory> memories = new OriginalSet<>();
+    public HashSet<Thought> thoughts = new HashSet<>();
+    private Memories memories = new Memories();
     private LinkedList<FinanceProperty> financeProperties = new LinkedList<>();
     private Boolean bMe = null;
     private Ghost family = null;
@@ -72,12 +73,12 @@ public class Life {
         System.out.println();
     }
 
-    public OriginalSet<Thought> getThoughts() {
+    public HashSet<Thought> getThoughts() {
         this.thoughts.add(new Thought(new String()));
         return this.thoughts;
     }
 
-    public void sayTo(OriginalSet<Thought> thoughts, Life recipientLife) {
+    public void sayTo(HashSet<Thought> thoughts, Life recipientLife) {
         System.out.println("This could end right here if you don't let it out");
         new World().sendMessage(thoughts.toString(), recipientLife);
     }
@@ -88,7 +89,7 @@ public class Life {
         throw new TooMuchOfAPussyException();
     }
 
-    public OriginalSet<Memory> getMemories(Life me) {
+    public Memories getMemories(Life me) {
         System.out.println("Give up or give me your all");
         return this.memories;
     }

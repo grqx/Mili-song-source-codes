@@ -9,6 +9,7 @@ INITIALIZATION
 Set up our new world
 And let's begin the
 SIMULATION
+
 If I'm a set of points
 Then I will give you my
 DIMENSION

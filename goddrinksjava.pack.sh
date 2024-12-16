@@ -1,6 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 cd $(dirname "$0")
-mkdir -p src/goddrinksjava/classes
-javac -d src/goddrinksjava/classes src/goddrinksjava/*.java
-jar -cfe goddrinksjava.jar goddrinksjava.GodDrinksJava -C src/goddrinksjava/classes/ .
-rm -rf src/goddrinksjava/classes
+
+PROJECT_NAME="goddrinksjava" MAIN_CLASS="goddrinksjava.GodDrinksJava" EXTRA_DEPS_SRC=$(find "src/music_player" -name "*.java") devscripts/build_jar.sh

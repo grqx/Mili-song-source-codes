@@ -1,6 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 cd $(dirname "$0")
-mkdir -p src/extraLarge/classes
-javac -d src/extraLarge/classes src/extraLarge/*.java
-jar -cfe extraLarge.jar extraLarge.sustainPlusPlus -C src/extraLarge/classes/ .
-rm -rf src/extraLarge/classes
+
+PROJECT_NAME="extraLarge" MAIN_CLASS="extraLarge.sustainPlusPlus" devscripts/build_jar.sh

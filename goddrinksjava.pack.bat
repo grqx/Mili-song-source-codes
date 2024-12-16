@@ -1,6 +1,12 @@
 @echo off
-cd %~dp0
-md src\goddrinksjava\classes
-javac -d src/goddrinksjava/classes src/goddrinksjava/*.java
-jar -cfe goddrinksjava.jar goddrinksjava.GodDrinksJava -C src/goddrinksjava/classes/ .
-rd /S /Q src\goddrinksjava\classes
+cd /d "%~dp0"
+setlocal enabledelayedexpansion
+
+set "PROJECT_NAME=goddrinksjava"
+set "MAIN_CLASS=goddrinksjava.GodDrinksJava"
+for /r "src\music_player" %%f in (*.java) do (
+    set "EXTRA_DEPS_SRC=!EXTRA_DEPS_SRC! %%f"
+)
+
+call "devscripts\build_jar.cmd"
+endlocal
