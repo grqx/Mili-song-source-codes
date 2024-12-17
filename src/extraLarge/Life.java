@@ -19,9 +19,7 @@ public class Life {
   private Ghost family = null;
   private Ghost[] parents = null;
   private Boolean calledForBoolean = null;
-  private String[] vocabStrings = null;
   private Boolean shutUp = false;
-  private Message lastMsg = null;
 
   public void addPhysicalAttribute(String attribute) {
     return;
@@ -240,7 +238,7 @@ public class Life {
     World.concurrentMusicPlayer.nextSentence();
     System.out.println("We keep chasing");
     Ghost[] dreamParentsGhosts = {new Ghost(), null};
-    return dreamParentsGhosts;
+    return parents != null ? this.parents : dreamParentsGhosts;
   }
 
   public void setParents(Ghost[] parents) {
@@ -298,7 +296,6 @@ public class Life {
     System.out.println("WHERE'S YOUR \"YES SIR\" & \"PLEASE\"?");
     World.concurrentMusicPlayer.nextSentence();
     System.out.println("That's the only vocabulary you need");
-    this.vocabStrings = vocabularyStrings;
   }
 
   public void disorient(Life me) {
@@ -346,9 +343,7 @@ public class Life {
     System.out.println("LILULILALULALULA");
   }
 
-  public void setMessages(Message msg) {
-    this.lastMsg = msg;
-  }
+  public void setMessages(Message msg) {}
 
   public void manipulate(Life manupulatedLife, String approach) {}
 

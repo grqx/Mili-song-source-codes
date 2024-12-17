@@ -59,10 +59,11 @@ public class World {
   }
 
   public Relationship getRelationship(Life me, Life you) {
+    if (relationships.isEmpty()) relationships.add(new Relationship(me, you));
     for (Relationship r : relationships) {
-      if (r != null) return r;
+      if (r.equals(new Relationship(me, you))) return r;
     }
-    return new Relationship(me, you);
+    return null;
   }
 
   public Vulnerability getVulnerabilities() {
