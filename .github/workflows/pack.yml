@@ -1,23 +1,15 @@
-name: Pack jar for both codes
-run-name: Pack jar file
+name: Pack jars
+run-name: Pack jars
 on: 
   workflow_dispatch:
   push: 
     paths: 
     - 'src/**'
     - 'media/**'
-env:
-  RELEASE_BODY: |
-    # Packed code into jar file
-    You can now run `java -jar goddrinksjava.jar` or `java -jar extraLarge.jar`
-    If you can't find the jar, there can be some problem with the code. Clone and run the build scripts yourself!
-  RELEASE_NAME: Packed jar
-  RELEASE_TAG: latest
 jobs:
   jarPacker:
     runs-on: ubuntu-latest
     timeout-minutes: 2
-    permissions: write-all
     strategy:
       matrix:
         proj: [extraLarge, goddrinksjava]
@@ -44,11 +36,13 @@ jobs:
         if-no-files-found: warn
         name: ${{ matrix.proj }}
         path: ${{ github.workspace }}/${{ matrix.proj }}.jar
+
   release:
     needs: jarPacker
     runs-on: ubuntu-latest
     timeout-minutes: 2
-    permissions: write-all
+    permissions:
+      contents: write
     name: Publish release
     steps:
     - name: Download artifacts
@@ -77,7 +71,9 @@ jobs:
         files: |
           ${{ github.workspace }}/artifact/*.jar
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag_name: ${{ env.RELEASE_TAG }}
-        name: ${{ env.RELEASE_NAME }}
-        body: ${{ env.RELEASE_BODY }}
+        tag_name: latest
+        name: Packed jars
+        body: |
+          # Packed code into jar files
+          You can now run `java -jar goddrinksjava.jar` or `java -jar extraLarge.jar`
         fail_on_unmatched_files: true
