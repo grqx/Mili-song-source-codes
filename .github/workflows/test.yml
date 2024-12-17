@@ -27,8 +27,27 @@ jobs:
         ./goddrinksjava.pack.sh
         ./extraLarge.pack.sh
         python3 test/test_output.py
-  fmt:
-    name: Check code formatting
+
+  fmtPy:
+    name: Check Python formatting
+    timeout-minutes: 2
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+
+    - name: Check Python code formatting
+      run: |
+        pip install ruff autopep8
+        autopep8 --recursive --diff .
+        ruff check .
+
+  fmtJava:
+    name: Check Java formatting
     timeout-minutes: 2
     runs-on: ubuntu-latest
     continue-on-error: true
@@ -40,18 +59,7 @@ jobs:
         distribution: 'oracle'
         java-version: '21'
 
-    - uses: actions/setup-python@v5
-      with:
-        python-version: '3.13'
-
-    - name: Check python code formatting
-      run: |
-        pip install ruff autopep8
-        autopep8 --recursive --diff .
-        ruff check .
-
-    - name: Check java code formatting
-      if: always()
+    - name: Check Java code formatting
       run: |
         curl -fsSL -o gjf.jar 'https://github.com/google/google-java-format/releases/download/v1.25.2/google-java-format-1.25.2-all-deps.jar'
         java -jar gjf.jar --replace $(find src/*/ -name '*.java' ! -name 'sustainPlusPlus.java' ! -name 'GodDrinksJava.java')
