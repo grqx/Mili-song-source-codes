@@ -10,7 +10,7 @@ public class WorldObject {
   public ArrayList<String> getArtTags() {
     artTags.add("abstract");
     artTags.add("beauty");
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Are those of us chasing after clarity");
     return artTags;
   }

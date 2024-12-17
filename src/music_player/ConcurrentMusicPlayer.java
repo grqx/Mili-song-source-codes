@@ -5,12 +5,19 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ConcurrentMusicPlayer {
-  // TODO: these shouldn't be static
-  private static MusicPlayer musicPlayer = new MusicPlayer();
-  private static final ExecutorService executor = Executors.newFixedThreadPool(2);
-  private static int sleepCnt = 0;
-  private static boolean enabled = false;
-  private static PlayerConfigInterface pc = null;
+  private MusicPlayer musicPlayer = new MusicPlayer();
+  private final ExecutorService executor = Executors.newFixedThreadPool(2);
+  private int sleepCnt = 0;
+  private boolean enabled = false;
+  private PlayerConfigInterface pc = null;
+
+  private static void threadSleep(long millis) {
+    try {
+      Thread.sleep(millis);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
 
   public ConcurrentMusicPlayer(PlayerConfigInterface pci) {
     pc = pci;
@@ -23,15 +30,7 @@ public class ConcurrentMusicPlayer {
         });
   }
 
-  public static void threadSleep(long millis) {
-    try {
-      Thread.sleep(millis);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-  }
-
-  public static void nextSentence() {
+  public void nextSentence() {
     if (enabled) threadSleep(pc.getDiff()[sleepCnt++]);
   }
 }

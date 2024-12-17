@@ -4,14 +4,14 @@ import java.util.HashSet;
 import music_player.ConcurrentMusicPlayer;
 
 public class World {
-  private static ConcurrentMusicPlayer concurrentMusicPlayer =
-      new ConcurrentMusicPlayer(new MusicPlayerCfg());
   private Boolean giveBestAwardExecuted = false;
   private WorldObjectList worldObjects = new WorldObjectList();
   private HashSet<Rule> rules = new HashSet<>();
   private HashSet<Relationship> relationships = new HashSet<>();
   private River river = null;
   private Boolean postAskPhase = null;
+  public static ConcurrentMusicPlayer concurrentMusicPlayer =
+      new ConcurrentMusicPlayer(new MusicPlayerCfg());
 
   public World() {
     WorldObject wo1 = new WorldObject();
@@ -24,7 +24,7 @@ public class World {
 
   public void giveBestAward(String attribute, Life life) {
     if (!giveBestAwardExecuted) {
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("A representation of ugly?");
       giveBestAwardExecuted = true;
     } else {
@@ -41,15 +41,15 @@ public class World {
     switch (msg) {
       case "I love you.":
         if (recipientLife.isYou()) {
-          ConcurrentMusicPlayer.nextSentence();
+          concurrentMusicPlayer.nextSentence();
           System.out.println("Like what we did to the rivers we killed off in our near future");
         } else if (recipientLife.isMe()) {
-          ConcurrentMusicPlayer.nextSentence();
+          concurrentMusicPlayer.nextSentence();
           System.out.println("Ah");
         }
         break;
       case "Anything inconvenient, I shall erase for you.":
-        ConcurrentMusicPlayer.nextSentence();
+        concurrentMusicPlayer.nextSentence();
         System.out.println("It's a perfect plan");
         break;
       default:
@@ -74,7 +74,7 @@ public class World {
   public void addRule(Rule rule) {
     this.rules.add(rule);
     if (rule.getRuleString() == "Oedipus complex is okay") {
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("There is no crime in ideality");
     }
   }
@@ -86,14 +86,14 @@ public class World {
 
   public void execute(Life me) {
     if (postAskPhase == null) {
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("Do we need a real reality?");
     }
   }
 
   public River getRiver() {
     if (river == null) {
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("Don't let words die, let love run dry");
       river = new River(1);
     }
@@ -102,12 +102,12 @@ public class World {
 
   public void mute(Life life, String[] tagsStrings) {
     if (life.isMe()) {
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("And mumble some stupid stuff");
     } else {
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("Like");
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("I saw it coming");
     }
   }
@@ -119,14 +119,14 @@ public class World {
   }
 
   public void addPollution(String field, String type, Life polluter) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("FORGOTTEN ECOLOGY");
   }
 
   public Ghost[] search(Life me, String type) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("We are searching");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Following our human instincts");
     Ghost[] retGhosts = new Ghost[1];
     return retGhosts;

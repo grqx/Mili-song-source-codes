@@ -42,10 +42,10 @@ public class Life {
   }
 
   public void setNicknameFor(Life me, String nicknameString) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("CALL ME " + nicknameString.toUpperCase());
     if (nicknameString == "mommy") {
-      ConcurrentMusicPlayer.nextSentence();
+      World.concurrentMusicPlayer.nextSentence();
       System.out.println("JUST LIKE YOUR FANTASY");
     }
     return;
@@ -60,11 +60,11 @@ public class Life {
     Message rawMessage = new Message(msg);
     if (codeTypeString == "mux") {
       rawMessage.switchMuxed();
-      ConcurrentMusicPlayer.nextSentence();
+      World.concurrentMusicPlayer.nextSentence();
       System.out.println("MUX>>>DEMUX");
-      ConcurrentMusicPlayer.nextSentence();
+      World.concurrentMusicPlayer.nextSentence();
       System.out.println("Can't you understand me?");
-      ConcurrentMusicPlayer.nextSentence();
+      World.concurrentMusicPlayer.nextSentence();
       int idx = msg.lastIndexOf(".");
       if (idx > 0) msg = msg.substring(0, idx);
       System.out.println(msg);
@@ -80,7 +80,7 @@ public class Life {
   }
 
   public void announce(String announceString) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println(announceString);
     System.out.println();
     System.out.println();
@@ -92,32 +92,32 @@ public class Life {
   }
 
   public void sayTo(HashSet<Thought> thoughts, Life recipientLife) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("This could end right here if you don't let it out");
     new World().sendMessage(thoughts.toString(), recipientLife);
   }
 
   public void clearThoughts() throws TooMuchOfAPussyException {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Let it out");
     this.thoughts.clear();
     throw new TooMuchOfAPussyException();
   }
 
   public Memories getMemories(Life me) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Give up or give me your all");
     return this.memories;
   }
 
   public void transferThoughts(Life me) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Tell me now");
     me.thoughts = this.thoughts;
   }
 
   public void transferAttributes(Life me) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Tell me now");
     me.addPhysicalAttribute(this.memories.toString());
   }
@@ -142,10 +142,10 @@ public class Life {
 
   public void fight(Life fightable) {
     if (this.isMe()) {
-      ConcurrentMusicPlayer.nextSentence();
+      World.concurrentMusicPlayer.nextSentence();
       System.out.println("Pretend it's not happening");
     } else {
-      ConcurrentMusicPlayer.nextSentence();
+      World.concurrentMusicPlayer.nextSentence();
       System.out.println("Us losers do nothing so winners keep winning\n");
     }
   }
@@ -153,40 +153,40 @@ public class Life {
   public void command(Life recipientLife, String cmdString) {
     switch (cmdString) {
       case "sit":
-        ConcurrentMusicPlayer.nextSentence();
+        World.concurrentMusicPlayer.nextSentence();
         System.out.println("Sit");
         break;
       case "fetch":
-        ConcurrentMusicPlayer.nextSentence();
+        World.concurrentMusicPlayer.nextSentence();
         System.out.println("Fetch your leash");
         break;
       case "strip":
         break;
       case "exhabit":
-        ConcurrentMusicPlayer.nextSentence();
+        World.concurrentMusicPlayer.nextSentence();
         System.out.println("Show me");
-        ConcurrentMusicPlayer.nextSentence();
+        World.concurrentMusicPlayer.nextSentence();
         System.out.println("Your belly");
         break;
       case "stay":
-        ConcurrentMusicPlayer.nextSentence();
+        World.concurrentMusicPlayer.nextSentence();
         System.out.println("Stay");
         break;
       case "eat":
-        ConcurrentMusicPlayer.nextSentence();
+        World.concurrentMusicPlayer.nextSentence();
         System.out.println("Okay, eat");
         break;
       case "listen":
-        ConcurrentMusicPlayer.nextSentence();
+        World.concurrentMusicPlayer.nextSentence();
         System.out.println("Hear me out");
         break;
       case "be quite": // typo in the official video
         if (!shutUp) {
-          ConcurrentMusicPlayer.nextSentence();
+          World.concurrentMusicPlayer.nextSentence();
           System.out.println("If you'd just");
           shutUp = true;
         } else shutUp = null;
-        ConcurrentMusicPlayer.nextSentence();
+        World.concurrentMusicPlayer.nextSentence();
         System.out.println("SHUT UP");
         break;
       default:
@@ -210,14 +210,14 @@ public class Life {
 
   public void pay(
       Life recipientLife, LinkedList<FinanceProperty> financeProperties, String purpose) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("DICTATED ECONOMY");
     recipientLife.addFinanceProperties(financeProperties);
     this.resetFinanceProperties();
   }
 
   public void love(Life loverecipient) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("HUMAN PSYCHOLOGY");
   }
 
@@ -226,39 +226,39 @@ public class Life {
   }
 
   public Boolean isHappy() {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Looking for ghosts of the non-existing kind");
     return false;
   }
 
   public void removeFamily(Ghost g) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Who make us whole from the very beginning");
     if (family == g) g = null;
   }
 
   public Ghost[] getDreamParents() {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("We keep chasing");
     Ghost[] dreamParentsGhosts = {new Ghost(), null};
     return dreamParentsGhosts;
   }
 
   public void setParents(Ghost[] parents) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Dreaming about the perfect being");
     this.parents = parents;
   }
 
   public void throwTantrum() {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Dreaming about the perfect being");
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Perfect parents who are non-existing");
     try {
       throw new Tantrum();
     } catch (Tantrum e) {
-      ConcurrentMusicPlayer.nextSentence();
+      World.concurrentMusicPlayer.nextSentence();
       System.out.println("Our bodies grew, our minds stayed the same");
       System.out.println();
       System.out.println();
@@ -267,17 +267,17 @@ public class Life {
 
   public void ask(Life life, String questionString) {
     if (this.isMe()) {
-      ConcurrentMusicPlayer.nextSentence();
+      World.concurrentMusicPlayer.nextSentence();
       System.out.println("Now, darling, where do we go from here?");
     } else {
-      ConcurrentMusicPlayer.nextSentence();
+      World.concurrentMusicPlayer.nextSentence();
       System.out.println("Hey, honey, where do we go from here?");
     }
   }
 
   public void callFor(Life you) {
     if (calledForBoolean == null) {
-      ConcurrentMusicPlayer.nextSentence();
+      World.concurrentMusicPlayer.nextSentence();
       System.out.print("Darling, ");
       calledForBoolean = false;
     } else {
@@ -288,16 +288,16 @@ public class Life {
   }
 
   public void ask(World world, String askWorldString) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println(askWorldString);
     System.out.println();
     world.setPostAskPhase();
   }
 
   public void setVocabulary(String[] vocabularyStrings) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("WHERE'S YOUR \"YES SIR\" & \"PLEASE\"?");
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("That's the only vocabulary you need");
     this.vocabStrings = vocabularyStrings;
   }
@@ -309,9 +309,9 @@ public class Life {
   }
 
   public LinkedList<War> getOngoingFights() {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("We could end right here if you'd just let us fall");
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Let us fall");
     LinkedList<War> ongoingFightsWars = new LinkedList<War>();
     ongoingFightsWars.add(new War(this, "Just cruel war."));
@@ -321,7 +321,7 @@ public class Life {
   public void setMemory(String emotionString, Integer value) {
     if (this.isYou() && value == null) {
       if (emotionString == "sad") {
-        ConcurrentMusicPlayer.nextSentence();
+        World.concurrentMusicPlayer.nextSentence();
         System.out.print("No tears, ");
       } else if (emotionString == "regretful") {
         System.out.println("no regrets");
@@ -330,20 +330,20 @@ public class Life {
   }
 
   public void setMemory(Life memoryLife, Integer value) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("It's all just sunk cost, I know");
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("But I'm not ready to stop");
   }
 
   public void listenTelepathically(Life me, World world) throws NotAMindReaderException {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Then maybe you'll see what I've endured now");
     if (me instanceof Life && world instanceof World) throw new NotAMindReaderException();
   }
 
   public void ignoreCommands() {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("LILULILALULALULA");
   }
 
@@ -359,24 +359,24 @@ public class Life {
 
   public Life getMemory(Life life) {
     if (life.isYou()) {
-      ConcurrentMusicPlayer.nextSentence();
+      World.concurrentMusicPlayer.nextSentence();
       System.out.println("I don't want to stop");
     }
     return life;
   }
 
   public void praise(Life recipientLife, String contentString) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("g 0 0 d    b o i");
   }
 
   public void gift(Life recipientLife, String giftString) {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("Here's a treat");
   }
 
   public void consumeLast() {
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("HUNGRY FOR ENERGY");
   }
 }

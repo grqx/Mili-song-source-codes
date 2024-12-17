@@ -13,36 +13,36 @@ public class World {
 
   public World(int var1) {
     this.var1 = var1;
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("OBJECT CREATION");
   }
 
   public void addThing(Thing thing) {
     if (thing.getName().equals("Me")) {
-      ConcurrentMusicPlayer.nextSentence();
+      Thing.concurrentMusicPlayer.nextSentence();
       System.out.print("Fill in my data");
     } else {
       System.out.println(" parameters");
-      ConcurrentMusicPlayer.nextSentence();
+      Thing.concurrentMusicPlayer.nextSentence();
       System.out.println("INITIALIZATION");
     }
     things.add(thing);
   }
 
   public void startSimulation() {
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("Set up our new world");
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("And let's begin the");
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("SIMULATION\n");
   }
 
   public void timeTravelForTwo(String kinen, int year, Thing... thing) {
     if (kinen.equals("AD")) {
-      ConcurrentMusicPlayer.nextSentence();
+      Thing.concurrentMusicPlayer.nextSentence();
       System.out.println("Oh, we can travel");
-      ConcurrentMusicPlayer.nextSentence();
+      Thing.concurrentMusicPlayer.nextSentence();
       System.out.print("To A.D. ");
     } else {
       System.out.println("to B.C.");
@@ -52,43 +52,43 @@ public class World {
   }
 
   public void unite(Thing... things) {
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("And we can unite");
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("So deeply, so deeply\n");
   }
 
   public void lockThing(Thing thing) {
     if (thing.getName().equals("Me")) {
-      ConcurrentMusicPlayer.nextSentence();
+      Thing.concurrentMusicPlayer.nextSentence();
       System.out.println("Though we are trapped");
     } else {
-      ConcurrentMusicPlayer.nextSentence();
+      Thing.concurrentMusicPlayer.nextSentence();
       System.out.println("In this strange, strange");
-      ConcurrentMusicPlayer.nextSentence();
+      Thing.concurrentMusicPlayer.nextSentence();
       System.out.println("SIMULATION\n");
     }
   }
 
   public Thing getGod() {
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("If I'm the only god");
     for (Thing t : things) if (t.getName() == "Me") return t;
     return null;
   }
 
   public void procreate(Thing... things) {
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("And then do whatever");
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("From AM to PM");
   }
 
   public void makeHigh(Thing thing) {
     if (thing.getName().equals("Me")) {
-      ConcurrentMusicPlayer.nextSentence();
+      Thing.concurrentMusicPlayer.nextSentence();
       System.out.println("So we can enter");
-      ConcurrentMusicPlayer.nextSentence();
+      Thing.concurrentMusicPlayer.nextSentence();
       System.out.print("The trance, ");
     } else {
       System.out.println("the trance\n");
@@ -96,7 +96,7 @@ public class World {
   }
 
   public void unlock(Thing thing) {
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("Though you have left\n");
   }
 
@@ -105,9 +105,9 @@ public class World {
   }
 
   public int getThingIndex(Thing thing) {
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("If I can have you back");
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("I will run the");
     return 0;
   }
@@ -137,26 +137,26 @@ public class World {
           break;
       }
     }
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println(args[0]);
   }
 
   public void runExecution() {
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("EXECUTION");
   }
 
   public boolean isExecutableBy(Thing thing) {
     System.out.println();
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("If I can");
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("If I can give them all the");
     return things.contains(thing);
   }
 
   public void execute(Thing thing) {
-    ConcurrentMusicPlayer.nextSentence();
+    Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("EXECUTION");
   }
 }

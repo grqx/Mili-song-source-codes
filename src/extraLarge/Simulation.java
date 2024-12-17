@@ -13,7 +13,7 @@ public class Simulation {
     this.world = world;
     this.year = year;
     this.time = time;
-    ConcurrentMusicPlayer.nextSentence();
+    World.concurrentMusicPlayer.nextSentence();
     System.out.println("If we can be completely simulated");
   }
 

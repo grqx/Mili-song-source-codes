@@ -8,7 +8,7 @@ public class WorldObjectList extends LinkedList<WorldObject> {
   public void sortAttribute(String attributeString) {
     switch (attributeString) {
       case "beauty":
-        ConcurrentMusicPlayer.nextSentence();
+        World.concurrentMusicPlayer.nextSentence();
         System.out.println("If abstraction is the definition of beauty");
         break;
       default:

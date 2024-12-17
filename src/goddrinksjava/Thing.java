@@ -6,8 +6,6 @@ import music_player.ConcurrentMusicPlayer;
 
 /** Created by syuchan on 2016/10/17. */
 public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, Tomato, TabbyCat {
-  private static ConcurrentMusicPlayer concurrentMusicPlayer =
-      new ConcurrentMusicPlayer(new MusicPlayerCfg());
   private String name;
   private Set<Attribute> attributes = new HashSet<>();
   private OriginalSet<Dimension> dimensions = new OriginalSet<>();
@@ -27,20 +25,22 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
   private Execution execution = new Execution();
   private int lookForCount = 0;
   private int addAttributeCount = 0;
+  public static ConcurrentMusicPlayer concurrentMusicPlayer =
+      new ConcurrentMusicPlayer(new MusicPlayerCfg());
 
   public Thing(String name) {
     this.name = name;
     if (name.equals("Me")) {
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("Switch on the power line");
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("Remember to put on");
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("PROTECTION");
     } else {
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("Lay down your pieces");
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("And let's begin");
     }
     senses.add(Sense.VIBRATION);
@@ -51,7 +51,7 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
   }
 
   public void addAttribute(Attribute attribute) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.print("Then I will give you");
     addAttributeCount++;
     if (addAttributeCount != 4) {
@@ -62,22 +62,22 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
   }
 
   public void addAction(String name, double var1) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Then you can sit on all my");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("TANGENTS");
     actions.add(new Action(name, var1));
   }
 
   public void toggleCurrent() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Switch my current");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("To AC, to DC");
   }
 
   public void canSee(boolean see) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("And then blind my vision");
     this.see = see;
   }
@@ -86,15 +86,15 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
     Feeling feel = Feeling.valueOf(feeling.toUpperCase());
     switch (feel) {
       case DIZZY:
-        ConcurrentMusicPlayer.nextSentence();
+        concurrentMusicPlayer.nextSentence();
         System.out.println("So dizzy, so dizzy");
         break;
       case COMPLETE:
-        ConcurrentMusicPlayer.nextSentence();
+        concurrentMusicPlayer.nextSentence();
         System.out.println("Then I can");
-        ConcurrentMusicPlayer.nextSentence();
+        concurrentMusicPlayer.nextSentence();
         System.out.println("Then I can finally be");
-        ConcurrentMusicPlayer.nextSentence();
+        concurrentMusicPlayer.nextSentence();
         System.out.println("COMPLETION");
         break;
       default:
@@ -104,91 +104,91 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
   }
 
   public void removeFeeling(String feeling) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Then maybe");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Then maybe you won't leave me so");
     Feeling feel = Feeling.valueOf(feeling.toUpperCase());
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println(feel.name());
     feelings.remove(feel);
   }
 
   public int getNumStimulationsAvailable() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I can");
     return 0;
   }
 
   public int getNumStimulationsNeeded() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I can give you all the");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("STIMULATIONS");
     return 0;
   }
 
   public void setSatisfaction(Satisfaction satisfaction) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("SATISFACTION");
     this.satisfaction = satisfaction;
   }
 
   public Satisfaction toSatisfaction() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Then I can");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Then I can be your only");
     return satisfaction;
   }
 
   public int getFeelingIndex(String feeling) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I can make you happy");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("I will run the");
     Feeling feel = Feeling.valueOf(feeling.toUpperCase());
     return feelings.contains(feel) ? -1 : 1;
   }
 
   public void requestExecution(World world) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("EXECUTION");
   }
 
   public Proof toProof() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Then you're the proof of my");
     return proof;
   }
 
   public void setProof(Proof proof) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("EXISTENCE\n");
     this.proof = proof;
   }
 
   public void toggleGender() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Switch my gender");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("To F, to M");
   }
 
   public void toggleRoleBDSM() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Oh, switch my role");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("To S, to M");
   }
 
   public boolean getSenseIndex(String sense) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I can");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I can feel your");
     Sense s = Sense.valueOf(sense.toUpperCase());
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println(s.name() + "S");
     return senses.contains(s);
   }
@@ -196,26 +196,26 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
   public void lookFor(Thing thing, World world) {
     lookForCount++;
     if (lookForCount == 5) {
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("You have left me in");
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("ISOLATION");
     } else {
-      ConcurrentMusicPlayer.nextSentence();
+      concurrentMusicPlayer.nextSentence();
       System.out.println("You have left");
     }
   }
 
   public Memory getMemory() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I can");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I can erase all the pointless");
     return memory;
   }
 
   public int getOpinionIndex(String var1) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Challenging your god");
     Opinion[] opinions = this.opinions.toArray(new Opinion[0]);
     for (int i = 0; i < opinions.length; i++) {
@@ -225,103 +225,103 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
   }
 
   public void setOpinion(int index, boolean var1) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("You have made some");
     if (index == -1) throw new IllegalArgumentException();
     this.opinion = new Opinion(((Opinion) opinions.toArray()[index]).getVar1(), var1);
   }
 
   public void setExecution(Execution execution) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Then I can");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Then I can be your only");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("EXECUTION");
     this.execution = execution;
   }
 
   public Execution toExecution() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("EXECUTION");
     return execution;
   }
 
   public void escape(World world) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Though we are trapped");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("We are trapped ah\n");
   }
 
   public void escape(String topic) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Though you are free");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("I am trapped");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Trapped in");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("LO-O-OVE\n");
   }
 
   public void learnTopic(String string) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("I've studied");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("I've studied how to properly");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("LO-O-OVE");
   }
 
   public void takeExamTopic(String string) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Question me");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Question me, I can answer all");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("LO-O-OVE");
   }
 
   public void getAlgebraicExpression(String string) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("I know the algebraic expression of");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("LO-O-OVE");
   }
 
   @Override
   public OriginalSet<Dimension> getDimensions() {
-    ConcurrentMusicPlayer.nextSentence();
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I'm a set of points");
     return dimensions;
   }
 
   @Override
   public void resetDimensions() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("DIMENSION");
     dimensions.clear();
   }
 
   @Override
   public Circumference getCircumference() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I'm a circle");
     return circumference;
   }
 
   @Override
   public void resetCircumference() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("CIRCUMFERENCE");
     circumference = null;
   }
 
   @Override
   public double getXPosition() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I'm a sine wave");
     return 0;
   }
@@ -333,55 +333,55 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
 
   @Override
   public void setLimit(Limit limit) {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("LIMITATIONS\n");
     this.limit = limit;
   }
 
   @Override
   public Limit toLimit() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I approach infinity");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Then you can be my");
     return limit;
   }
 
   @Override
   public OriginalSet<Nutrient> getNutrients() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I'm an eggplant");
     return nutrients;
   }
 
   @Override
   public void resetNutrients() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("NUTRIENTS");
     nutrients.clear();
   }
 
   @Override
   public OriginalSet<Antioxidant> getAntioxidants() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I'm a tomato");
     return antioxidants;
   }
 
   @Override
   public void resetAntioxidants() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("ANTIOXIDANTS");
     antioxidants.clear();
   }
 
   @Override
   public void purr() {
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("If I'm a tabby cat");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("Then I will purr for your");
-    ConcurrentMusicPlayer.nextSentence();
+    concurrentMusicPlayer.nextSentence();
     System.out.println("ENJOYMENT");
   }
 }
