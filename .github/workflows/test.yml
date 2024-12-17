@@ -54,4 +54,5 @@ jobs:
       if: always()
       run: |
         curl -fsSL -o gjf.jar 'https://github.com/google/google-java-format/releases/download/v1.25.2/google-java-format-1.25.2-all-deps.jar'
-        java -jar gjf.jar "$(find src/*/ -name '*.java' ! -name 'sustainPlusPlus.java' ! -name 'GodDrinksJava.java')"
+        java -jar gjf.jar --replace $(find src/*/ -name '*.java' ! -name 'sustainPlusPlus.java' ! -name 'GodDrinksJava.java')
+        git diff

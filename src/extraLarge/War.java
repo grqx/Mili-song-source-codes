@@ -1,6 +1,5 @@
 package extraLarge;
 
-
 public class War {
   private Life warParticipant = null;
 

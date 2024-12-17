@@ -1,6 +1,5 @@
 package extraLarge;
 
-
 public class Message {
   private String actualString = new String();
   private boolean muxed = false;
