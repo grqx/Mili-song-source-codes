@@ -10,11 +10,13 @@ def rename_files(directory: str, toggle_to: bool | None = None, suffix: str = '.
             old_path = os.path.join(root, file)
             new_filename = file
             if toggle_to is None:
-                new_filename = file.removesuffix(suffix) if file.endswith(suffix) else f'{file}{suffix}'
+                new_filename = file.removesuffix(suffix) if file.endswith(
+                    suffix) else f'{file}{suffix}'
             elif toggle_to is True:
                 new_filename = file.removesuffix(suffix)
             elif toggle_to is False:
-                new_filename = f'{file}{suffix}' if not file.endswith(suffix) else new_filename
+                new_filename = f'{file}{suffix}' if not file.endswith(
+                    suffix) else new_filename
             new_path = os.path.join(root, new_filename)
             if old_path != new_path:
                 try:
@@ -41,7 +43,8 @@ def main() -> None:
     if not os.path.isdir(media_dir):
         print(f'Directory does not exist: {media_dir!r}')
         return
-    cnt = rename_files(media_dir, toggle_to=parse_toggle_to(sys.argv[1]) if len(sys.argv) > 1 else None)
+    cnt = rename_files(media_dir, toggle_to=parse_toggle_to(
+        sys.argv[1]) if len(sys.argv) > 1 else None)
     print(f'Renamed {cnt} files')
 
 

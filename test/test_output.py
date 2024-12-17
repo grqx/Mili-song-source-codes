@@ -22,7 +22,8 @@ def java_expect_output(self: unittest.TestCase, jar_path: str, expected_path: st
         result = subprocess.run(['java', '-jar', jar_path], env=env,
                                 capture_output=True, text=True, check=True)
         result = result.stdout.replace('\r\n', '\n')
-        self.assertEqual(result, expected_output, 'actual output does not match expected')
+        self.assertEqual(result, expected_output,
+                         'actual output does not match expected')
     except FileNotFoundError:
         print(f'Error: Expected file {expected_path!r} not found.')
         sys.exit(1)
