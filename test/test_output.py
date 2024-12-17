@@ -4,9 +4,15 @@ import subprocess
 import sys
 
 
+def file_abspath(path: str) -> str:
+    return os.path.join(os.path.dirname(__file__), path)
+
+
 def java_expect_output(self: unittest.TestCase, jar_path: str, expected_path: str, encoding: str | None = None) -> None:
-    self.maxDiff = 4000
     try:
+        self.maxDiff = 4000
+        expected_path = file_abspath(expected_path)
+        jar_path = file_abspath(jar_path)
         with open(expected_path, encoding=encoding) as f:
             expected_output = f.read()
 
