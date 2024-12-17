@@ -51,16 +51,11 @@ jobs:
     permissions: write-all
     name: Publish release
     steps:
-
     - name: Download artifacts
       uses: actions/download-artifact@v4.1.8
       with:
         merge-multiple: true
         path: ${{ github.workspace }}/artifact
-
-    - name: List downloaded artifacts
-      run: |
-        echo "ARTIFACTS=$(find artifact/ -name '*.jar')" >> "$GITHUB_ENV"
 
     - name: Delete Releases
       uses: sgpublic/delete-release-action@v1.2
@@ -79,7 +74,8 @@ jobs:
     - name: Upload to Releases
       uses: softprops/action-gh-release@v2.0.5
       with:
-        files: ${{ env.ARTIFACTS }}
+        files: |
+          ${{ github.workspace }}/artifact/*.jar
         token: ${{ secrets.GITHUB_TOKEN }}
         tag_name: ${{ env.RELEASE_TAG }}
         name: ${{ env.RELEASE_NAME }}
