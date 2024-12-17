@@ -1,7 +1,5 @@
 package extraLarge;
 
-import music_player.ConcurrentMusicPlayer;
-
 public class Simulation {
   Life me = null;
   World world = null;

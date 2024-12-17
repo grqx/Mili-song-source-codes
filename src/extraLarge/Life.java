@@ -2,7 +2,6 @@ package extraLarge;
 
 import java.util.HashSet;
 import java.util.LinkedList;
-import music_player.ConcurrentMusicPlayer;
 
 class FinanceProperty {
   public Integer value = 0;

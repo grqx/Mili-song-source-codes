@@ -19,13 +19,12 @@ jobs:
       with:
         python-version: '3.13'
 
-    - name: Pack jars
+    - name: Build jars
       run: |
-        # disable media to save resources
-        python devscripts/media_toggle.py disable
         find -name '*.sh' | xargs sudo chmod a+rx
+        # disable media to save resources
+        python3 devscripts/media_toggle.py disable
         ./goddrinksjava.pack.sh
-        sudo chmod a+rx ./extraLarge.pack.sh
         ./extraLarge.pack.sh
 
     - name: Run tests

@@ -2,7 +2,6 @@ package extraLarge;
 
 import java.util.Comparator;
 import java.util.LinkedList;
-import music_player.ConcurrentMusicPlayer;
 
 public class WorldObjectList extends LinkedList<WorldObject> {
   public void sortAttribute(String attributeString) {

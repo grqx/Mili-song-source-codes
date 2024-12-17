@@ -2,6 +2,8 @@ package goddrinksjava;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 import music_player.ConcurrentMusicPlayer;
 
 /** Created by syuchan on 2016/10/17. */
@@ -13,15 +15,13 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
   private Set<Action> actions = new HashSet<>();
   private Set<Feeling> feelings = new HashSet<>();
   private Limit limit = new Limit();
-  private boolean see = true;
   private Satisfaction satisfaction = new Satisfaction();
   private OriginalSet<Nutrient> nutrients = new OriginalSet<>();
   private OriginalSet<Antioxidant> antioxidants = new OriginalSet<>();
   private Proof proof = new Proof();
   private Set<Sense> senses = new HashSet<>();
   private Memory memory = new Memory();
-  private Opinion opinion = new Opinion("none", false);
-  private Set<Opinion> opinions = new HashSet<>();
+  private List<Opinion> opinions = new LinkedList<>();
   private Execution execution = new Execution();
   private int lookForCount = 0;
   private int addAttributeCount = 0;
@@ -79,7 +79,6 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
   public void canSee(boolean see) {
     concurrentMusicPlayer.nextSentence();
     System.out.println("And then blind my vision");
-    this.see = see;
   }
 
   public void addFeeling(String feeling) {
@@ -214,21 +213,21 @@ public class Thing implements PointSet, Circle, SineWave, Sequence, Eggplant, To
     return memory;
   }
 
-  public int getOpinionIndex(String var1) {
+  public int getOpinionIndex(String opinionString) {
     concurrentMusicPlayer.nextSentence();
     System.out.println("Challenging your god");
     Opinion[] opinions = this.opinions.toArray(new Opinion[0]);
     for (int i = 0; i < opinions.length; i++) {
-      if (opinions[i].getVar1().equalsIgnoreCase(var1)) return i;
+      if (opinions[i].getOpinionString().equalsIgnoreCase(opinionString)) return i;
     }
     return -1;
   }
 
-  public void setOpinion(int index, boolean var1) {
+  public void setOpinion(int index, boolean believeOpinion) {
     concurrentMusicPlayer.nextSentence();
     System.out.println("You have made some");
     if (index == -1) throw new IllegalArgumentException();
-    this.opinion = new Opinion(((Opinion) opinions.toArray()[index]).getVar1(), var1);
+    if (!believeOpinion) opinions.get(index).disbelieve();
   }
 
   public void setExecution(Execution execution) {

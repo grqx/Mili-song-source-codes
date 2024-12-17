@@ -2,15 +2,23 @@ package goddrinksjava;
 
 /** Created by syuchan on 2016/10/17. */
 public class Opinion {
-  private String var1;
-  private boolean var2;
+  private String opinionString;
+  private boolean believed = false;
 
-  public Opinion(String var1, boolean var2) {
-    this.var1 = var1;
-    this.var2 = var2;
+  public Opinion(String opinionString, boolean believed) {
+    this.opinionString = opinionString;
+    this.believed = believed;
   }
 
-  public String getVar1() {
-    return var1;
+  public String getOpinionString() {
+    return opinionString;
+  }
+
+  public boolean getBelieved() {
+    return believed;
+  }
+
+  public void disbelieve() {
+    believed = false;
   }
 }

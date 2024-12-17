@@ -1,7 +1,6 @@
 package extraLarge;
 
 import java.util.ArrayList;
-import music_player.ConcurrentMusicPlayer;
 
 public class WorldObject {
   private ArrayList<String> artTags = new ArrayList<String>();

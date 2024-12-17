@@ -2,11 +2,9 @@ package extraLarge;
 
 
 public class War {
-  private String descString = null;
   private Life warParticipant = null;
 
   public War(Life warParticipant, String descString) {
-    this.descString = descString;
     this.warParticipant = warParticipant;
   }
 

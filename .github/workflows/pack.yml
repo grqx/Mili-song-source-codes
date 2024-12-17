@@ -5,7 +5,7 @@ on:
   push: 
     paths: 
     - 'src/**'
-    - 'media/**'
+    - 'resources/**'
 jobs:
   jarPacker:
     runs-on: ubuntu-latest

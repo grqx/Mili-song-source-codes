@@ -2,17 +2,12 @@ package goddrinksjava;
 
 import java.util.HashSet;
 import java.util.Set;
-import music_player.ConcurrentMusicPlayer;
 
 /** Created by syuchan on 2016/10/17. */
 public class World {
   private static Set<Thing> things = new HashSet<>();
-  private int var1;
-  private String kinen;
-  private int year;
 
   public World(int var1) {
-    this.var1 = var1;
     Thing.concurrentMusicPlayer.nextSentence();
     System.out.println("OBJECT CREATION");
   }
@@ -47,8 +42,6 @@ public class World {
     } else {
       System.out.println("to B.C.");
     }
-    this.kinen = kinen;
-    this.year = year;
   }
 
   public void unite(Thing... things) {
