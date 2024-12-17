@@ -26,4 +26,4 @@ jobs:
         python3 devscripts/media_toggle.py disable
         ./goddrinksjava.pack.sh
         ./extraLarge.pack.sh
-        python3 test_output.py
+        python3 test/test_output.py
